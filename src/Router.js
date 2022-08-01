@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Reservation from './pages/Reservation/Reservation';
 import Purchase from './pages/Purchase/Purchase';
 import Mypage from './pages/Mypage/Mypage';
+import PassengerData from './pages/Purchase/PassengerData';
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/purchase" element={<Purchase />} />
+        <Route path="/passengerdata" element={<PassengerData />} />
         <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
