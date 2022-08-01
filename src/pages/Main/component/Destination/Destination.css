@@ -1,0 +1,26 @@
+.MuiDialog-container {
+  position: relative;
+  top: -100px;
+  left: -230px;
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  width: 170px;
+}
+
+.MuiDialog-container .MuiPaper-root {
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 10%),
+    0px 24px 38px 3px rgb(0 0 0 / 5%), 0px 9px 46px 8px rgb(0 0 0 / 2%);
+}
+
+.MuiListItem-root {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.MuiTypography-root {
+  text-align: center;
+}
+
+.MuiList-root {
+  padding-bottom: 0px;
+}
