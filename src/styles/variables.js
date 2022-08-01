@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const variables = {
-  flex: (direction = 'row', justify = 'center', align = 'center') => `
+  flexSet: (direction = 'row', justify = 'center', align = 'center') => `
     display: flex;
     flex-direction: ${direction};
     justify-content: ${justify};
