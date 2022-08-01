@@ -1,7 +1,7 @@
 import React from 'react';
 
-const images = () => {
+const Search = () => {
   return <div></div>;
 };
 
-export default images;
+export default Search;

@@ -5,9 +5,6 @@ import Nav from './components/Nav/Nav';
 import Login from './pages/Login/Login';
 import Reservation from './pages/Reservation/Reservation';
 import Purchase from './pages/Purchase/Purchase';
-import Mypage from './pages/Mypage/Mypage';
-import Signup from './pages/Login/Signup';
-import Kakao from './pages/Login/Kakao';
 import PassengerData from './pages/Purchase/PassengerData';
 import CheckReservation from './pages/CheckReservation/CheckReservation';
 import Loading from './pages/Loading/Loading';
@@ -32,7 +29,6 @@ function Router() {
           <Route path="/login" element={<Login />} />
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/passengerdata" element={<PassengerData />} />
-          <Route path="/mypage" element={<Mypage />} />
           <Route path="/checkreservation" element={<CheckReservation />} />
         </Route>
       </Routes>

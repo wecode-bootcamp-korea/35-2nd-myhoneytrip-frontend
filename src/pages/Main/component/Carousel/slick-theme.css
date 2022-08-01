@@ -59,28 +59,28 @@
   left: -40px;
 }
 [dir='rtl'] .slick-prev {
-  right: -25px;
+  right: -24px;
   left: auto;
 }
 .slick-prev:before {
-  content: '<';
+  content: '〈';
 }
 [dir='rtl'] .slick-prev:before {
-  content: '>';
+  content: '〉';
 }
 
 .slick-next {
-  right: 0px;
+  right: -24px;
 }
 [dir='rtl'] .slick-next {
   right: auto;
   left: 0px;
 }
 .slick-next:before {
-  content: '>';
+  content: '〉';
 }
 [dir='rtl'] .slick-next:before {
-  content: '<';
+  content: '〈';
 }
 
 /* Dots */
@@ -141,7 +141,7 @@
 }
 .slick-dots li button:before {
   font-family: 'slick';
-  font-size: 6px;
+  font-size: 13px;
   line-height: 20px;
 
   position: absolute;
