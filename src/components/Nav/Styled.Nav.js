@@ -3,15 +3,16 @@ import styled from 'styled-components';
 const S = {};
 
 S.Header = styled.header`
+  position: fixed;
   align-items: center;
   display: flex;
   width: 100%;
   height: 72px;
   padding: 0 30px;
   margin: 0 auto;
-  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   z-index: 99;
-  background-color: gray;
 `;
 
 S.Container = styled.div`
@@ -52,15 +53,16 @@ S.Button = styled.img`
 S.Button_none = styled.button`
   width: 90px;
   border: none;
-  border-radius: 2px;
   padding: 8px 12px;
   margin: 3px;
   background-color: transparent;
-  cursor: pointer;
+  border-radius: 2px;
   color: white;
   font-weight: bold;
   font-size: 14px;
+  cursor: pointer;
   transition: background-color 0.2s ease 0s;
+
   &:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.2);
@@ -69,16 +71,17 @@ S.Button_none = styled.button`
 
 S.Button_border = styled.button`
   width: 120px;
-  border: 1px solid white;
-  border-radius: 2px;
   padding: 8px 12px;
   margin: 3px;
+  border: 1px solid white;
+  border-radius: 2px;
   background-color: transparent;
-  cursor: pointer;
   color: white;
   font-weight: bold;
   font-size: 14px;
   transition: background-color 0.2s ease 0s;
+  cursor: pointer;
+
   &:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.2);
@@ -86,17 +89,36 @@ S.Button_border = styled.button`
 `;
 
 S.SearchInput = styled.input`
-  background: rgba(245, 246, 255, 0.15);
   height: 35px;
   width: 350px;
-  border: none;
-  border-radius: 2px;
+  margin-left: 20px;
+  padding: 0px 16px 0px 48px;
+  background: rgba(245, 246, 255, 0.15);
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   font-size: 15px;
   font-weight: 500;
   text-align: left;
-  margin-left: 20px;
-  padding: 0px 16px 0px 48px;
-  color: rgb(255, 255, 255);
+
+  :focus {
+    outline: none;
+  }
+  ::placeholder {
+    color: black;
+    opacity: 0.5;
+  }
 `;
 
+S.SearchBox = styled.div`
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    color: gray;
+  }
+`;
 export default S;

@@ -23,6 +23,7 @@ const Carousel = () => {
     autoplay: true,
     autoplaySpeed: 1900,
   };
+
   return (
     <S.Slick>
       <Slider {...settings}>

@@ -1,0 +1,7 @@
+.passenger {
+  position: absolute;
+  top: -145px !important;
+  left: 845px !important;
+  right: 100px;
+  height: 1000px;
+}

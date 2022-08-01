@@ -31,11 +31,14 @@ const Nav = () => {
     <S.Header>
       <S.Container>
         <S.ImgBox
-          onClick={goToMain}
           src="/images/Nav/logo.svg"
           alt="site_logo"
+          onClick={goToMain}
         />
-        <S.SearchInput placeholder="도시나 상품을 검색해보세yo" />
+        <S.SearchBox>
+          <S.SearchInput placeholder="도시나 상품을 검색해보세요" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </S.SearchBox>
         <S.LoginBox>
           <S.LoginArea>
             {tokenValid ? (
