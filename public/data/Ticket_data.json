@@ -1,0 +1,32 @@
+{
+  "Departure_Data": {
+    "id": 1,
+    "Departure": { "name": "서울", "code": "ICN" },
+    "Arrive": { "name": "괌", "code": "GUM" },
+    "Month": 8,
+    "Date": 16,
+    "Day": "화",
+    "AirLineImg": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png",
+    "AirLine": { "name": "제주항공", "AirLineCode": "JE 3102" },
+    "Departure_time": { "hour": 9, "minute": 10 },
+    "Arrive_time": { "hour": 14, "minute": 30 },
+    "price": 60000,
+    "AirTime": "04시간 25분",
+    "person": 4
+  },
+  "Arrive_Data": {
+    "id": 2,
+    "Departure": { "name": "괌", "code": "GUM" },
+    "Arrive": { "name": "서울", "code": "ICN" },
+    "Month": 8,
+    "Date": 27,
+    "Day": "토",
+    "AirLineImg": "https://flights.myrealtrip.com/air/wfw/imgs/mbl/logo/air/7C.png",
+    "AirLine": { "name": "제주항공", "AirLineCode": "JE 3101" },
+    "Departure_time": { "hour": 15, "minute": 55 },
+    "Arrive_time": { "hour": 19, "minute": 50 },
+    "price": 50000,
+    "AirTime": "04시간 25분",
+    "person": 4
+  }
+}
