@@ -6,6 +6,8 @@ import Login from './pages/Login/Login';
 import Reservation from './pages/Reservation/Reservation';
 import Purchase from './pages/Purchase/Purchase';
 import Mypage from './pages/Mypage/Mypage';
+import Signup from './pages/Login/Signup';
+import Kakao from './pages/Login/Kakao';
 import PassengerData from './pages/Purchase/PassengerData';
 import CheckReservation from './pages/CheckReservation/CheckReservation';
 
@@ -16,6 +18,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/logining" element={<Kakao />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/purchase" element={<Purchase />} />
         <Route path="/passengerdata" element={<PassengerData />} />
