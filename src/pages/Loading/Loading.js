@@ -1,7 +1,9 @@
 import React from 'react';
 import S from './Styled.Loading';
 
-const Loading = () => {
+const Loading = ({ loadingData }) => {
+  const { arrive_name, arrive_name_code, departure_day, arrive_day } =
+    loadingData;
   return (
     <S.Loading>
       <S.Video
@@ -14,7 +16,7 @@ const Loading = () => {
       <S.Text>
         <S.TextBox>
           <S.TextTop>
-            서울에서 삿포로/치토세까지
+            서울에서 {arrive_name}까지
             <br />
             왕복 항공권을 찾고 있습니다.
           </S.TextTop>
@@ -22,15 +24,15 @@ const Loading = () => {
             <S.MiddleData>
               <strong>SEL</strong>
               <span>서울</span>
-              <span>2022년 08월 22일</span>
+              <span>{departure_day}</span>
             </S.MiddleData>
             <S.MiddleArrow>
               <img src="/images/Loading_arrow.svg" alt="" />
             </S.MiddleArrow>
             <S.MiddleData>
-              <strong>CTS</strong>
-              <span>삿포로/치토세</span>
-              <span>2022년 08월 22일</span>
+              <strong>{arrive_name_code}</strong>
+              <span>{arrive_name}</span>
+              <span>{arrive_day}</span>
             </S.MiddleData>
           </S.TextMiddle>
         </S.TextBox>
