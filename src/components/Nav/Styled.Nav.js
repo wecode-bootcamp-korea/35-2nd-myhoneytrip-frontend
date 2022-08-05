@@ -10,9 +10,14 @@ S.Header = styled.header`
   height: 72px;
   padding: 0 30px;
   margin: 0 auto;
+<<<<<<< HEAD
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent;
   z-index: 99;
+=======
+  background-color: transparent;
+  z-index: 98;
+>>>>>>> 3ef6d46 (Add loading page)
 `;
 
 S.Container = styled.div`

@@ -7,6 +7,7 @@ S.Loading = styled.div`
   height: 100vh;
   overflow: hidden;
   position: relative;
+  z-index: 99;
 `;
 S.Video = styled.video`
   width: 100%;
