@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "img1",
+    "src": "/images/Carousel/slide1.png"
+  },
+  {
+    "id": "2",
+    "name": "img2",
+    "src": "/images/Carousel/slide2.png"
+  },
+  {
+    "id": "3",
+    "name": "img3",
+    "src": "/images/Carousel/slide3.png"
+  },
+  {
+    "id": "4",
+    "name": "img4",
+    "src": "/images/Carousel/slide4.png"
+  },
+  {
+    "id": "5",
+    "name": "img5",
+    "src": "/images/Carousel/slide5.png"
+  },
+  {
+    "id": "6",
+    "name": "img6",
+    "src": "/images/Carousel/slide1.png"
+  }
+]
