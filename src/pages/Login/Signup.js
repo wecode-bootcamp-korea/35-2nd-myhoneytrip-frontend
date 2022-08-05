@@ -2,14 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import S from './Styled.Login';
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
 
-  const goToSign = () => {
-    navigate('/Signup');
+  const goToLogin = () => {
+    navigate('/login');
   };
 
-  const login = () => {
+  const signin = () => {
     window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${'342566fe063dfa8affd1ddc743c2aa6a'}&redirect_uri=${'http://localhost:3000/logining'}&response_type=code`;
   };
   return (
@@ -22,7 +22,7 @@ const Login = () => {
         <S.WelcomeKo>허니문의 모든 것, 마이허니트립</S.WelcomeKo>
         <S.KaLogoImg
           src="/images/Login/kakao_login_medium_wide.png"
-          onClick={login}
+          onClick={signin}
         />
         <S.SNS>
           <S.Facebook>
@@ -39,12 +39,12 @@ const Login = () => {
           </S.Email>
         </S.SNS>
         <S.JoinBox>
-          <S.JoinSection>아직 회원이 아니신가요?</S.JoinSection>
-          <S.GotoJoin onClick={goToSign}>회원가입</S.GotoJoin>
+          <S.JoinSection>이미 아이디가 있으신가요?</S.JoinSection>
+          <S.GotoJoin onClick={goToLogin}>로그인</S.GotoJoin>
         </S.JoinBox>
       </S.LogBox>
     </S.LogBox_out>
   );
 };
 
-export default Login;
+export default Signup;

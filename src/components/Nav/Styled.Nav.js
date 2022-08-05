@@ -27,6 +27,7 @@ S.ImgBox = styled.img`
   display: inline;
   border: 0;
   width: 150px;
+  cursor: pointer;
 `;
 
 S.LoginBox = styled.div`
@@ -38,6 +39,14 @@ S.LoginBox = styled.div`
 
 S.LoginArea = styled.div`
   margin-right: 0px;
+`;
+
+S.Button = styled.img`
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 35px;
+  transform: translate(9px, 9px);
+  cursor: pointer;
 `;
 
 S.Button_none = styled.button`
