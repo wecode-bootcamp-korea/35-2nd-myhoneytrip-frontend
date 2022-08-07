@@ -1,0 +1,76 @@
+{
+  "result": [
+    {
+      "flight_detail": {
+        "flight_detail_id": 1,
+        "flight_detail_time": "2022-08-06T01:30:00"
+      },
+      "booking": {
+        "booking_id": 1,
+        "booking_number": "91792e35-02ee-414a-980b-0057dbb40b94",
+        "booking_status": "예약완료"
+      },
+      "airline": {
+        "airline_id": 2,
+        "airline_name": "MoonAirline",
+        "airline_logo": "2"
+      },
+      "departure": {
+        "departure_id": 5,
+        "departure_name": "서울"
+      },
+      "destination": {
+        "destination_id": 1,
+        "destination_name": "몰디브"
+      }
+    },
+    {
+      "flight_detail": {
+        "flight_detail_id": 852,
+        "flight_detail_time": "2022-08-25T01:00:00"
+      },
+      "booking": {
+        "booking_id": 5,
+        "booking_number": "e919d344-f9c9-4103-b247-4ae1c6acd75a",
+        "booking_status": "An upcoming trip"
+      },
+      "airline": {
+        "airline_id": 2,
+        "airline_name": "MoonAirline",
+        "airline_logo": "2"
+      },
+      "departure": {
+        "departure_id": 5,
+        "departure_name": "서울"
+      },
+      "destination": {
+        "destination_id": 4,
+        "destination_name": "칸쿤"
+      }
+    },
+    {
+      "flight_detail": {
+        "flight_detail_id": 150,
+        "flight_detail_time": "2022-08-25T01:00:00"
+      },
+      "booking": {
+        "booking_id": 7,
+        "booking_number": "36fd7128-bbf2-4477-8a27-c07e94555e21",
+        "booking_status": "An upcoming trip"
+      },
+      "airline": {
+        "airline_id": 1,
+        "airline_name": "HoneyAirline",
+        "airline_logo": "1"
+      },
+      "departure": {
+        "departure_id": 5,
+        "departure_name": "Seoul"
+      },
+      "destination": {
+        "destination_id": 3,
+        "destination_name": "Hawaii"
+      }
+    }
+  ]
+}
