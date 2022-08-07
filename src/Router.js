@@ -7,6 +7,7 @@ import Reservation from './pages/Reservation/Reservation';
 import Purchase from './pages/Purchase/Purchase';
 import Mypage from './pages/Mypage/Mypage';
 import PassengerData from './pages/Purchase/PassengerData';
+import CheckReservation from './pages/CheckReservation/CheckReservation';
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/purchase" element={<Purchase />} />
         <Route path="/passengerdata" element={<PassengerData />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/checkreservation" element={<CheckReservation />} />
       </Routes>
     </BrowserRouter>
   );
