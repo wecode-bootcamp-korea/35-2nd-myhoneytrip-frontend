@@ -13,7 +13,7 @@ const Nav = () => {
     <S.Header>
       <S.Container>
         <S.ImgBox src="/images/Nav/logo.svg" alt="site_logo" />
-        <S.SearchInput placeholder="도시나 상품을 검색해보세yo" />
+        <S.SearchInput placeholder="도시나 상품을 검색해보세요" />
         <S.LoginBox>
           <S.LoginArea>
             <S.Button_none onClick={goToLogin}>로그인</S.Button_none>
