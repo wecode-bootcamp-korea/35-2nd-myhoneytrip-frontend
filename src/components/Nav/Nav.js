@@ -14,7 +14,7 @@ const Nav = () => {
   };
 
   const goToMypage = () => {
-    navigate('/mypage');
+    navigate('/checkreservation');
   };
 
   const goToMain = () => {
@@ -54,7 +54,6 @@ const Nav = () => {
                 src="/images/Nav/bee.png"
               ></S.Button>
             )}
-            <S.Button onClick={goToMypage} src="/images/Nav/bee.png"></S.Button>
           </S.LoginArea>
         </S.LoginBox>
       </S.Container>

@@ -1,18 +1,39 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import S from './Styled.ReservationTicket';
 
 const ReservationData = ({ reservationData, overTen }) => {
-  const { flight_detail, booking, airline, departure, destination } =
-    reservationData;
-
+  const {
+    booking_id,
+    arrival_date,
+    arrival_name,
+    booking_number,
+    booking_status,
+    departure_name,
+    airline,
+  } = reservationData;
+  const navigate = useNavigate();
   const day = ['일', '월', '화', '수', '목', '금', '토'];
-
-  const newDate = new Date(flight_detail.flight_detail_time);
+  const status = { UPCOMING: '예약완료', CANCELED: '예약취소' };
+  const newDate = new Date(arrival_date);
 
   const date = `${overTen(newDate.getMonth() + 1)}월 ${overTen(
     newDate.getDate()
   )}일 (${day[newDate.getDay()]})`;
 
+  const cancelTravel = () => {
+    fetch('http://3.139.66.73:8001/bookings/mytrip', {
+      method: 'PATCH',
+      headers: { Authorization: localStorage.getItem('token') },
+      body: JSON.stringify({ booking_id: booking_id }),
+    })
+      .then(res => res.json())
+      .then(
+        data =>
+          data.message === 'CANCEL SUCCESS' &&
+          (alert('취소가 완료되었습니다.'), navigate('/checkreservation'))
+      );
+  };
   return (
     <li>
       <S.RightTime>{date}</S.RightTime>
@@ -20,22 +41,18 @@ const ReservationData = ({ reservationData, overTen }) => {
       <S.RightMainTicket>
         <S.TicketLeft>
           <S.LeftTicketTitle>
-            <p>{booking.booking_status}</p>
+            <p>{status[booking_status]}</p>
             <span>예약상세보기 {'>'}</span>
           </S.LeftTicketTitle>
           <S.LeftTicketName>
             <S.LeftTicketImg>
-              <img
-                src="https://d2yoing0loi5gh.cloudfront.net/assets/default/user_profile_image-414acc60b27f0a258bec14c82b70dc361fc6768da9289f924f887bec1fc33849.png"
-                alt=""
-              />
+              <img src={`${airline.logo}`} alt="" />
             </S.LeftTicketImg>
             <S.LeftTicketInfo>
               <p>
-                [{airline.airline_name}] {departure.departure_name} -{' '}
-                {destination.destination_name}
+                [{airline.name}] {departure_name} - {arrival_name}
               </p>
-              <span>예약번호 {booking.booking_number}</span>
+              <span>예약번호 {booking_number}</span>
             </S.LeftTicketInfo>
           </S.LeftTicketName>
           <S.LeftTicketStatus>
@@ -44,7 +61,7 @@ const ReservationData = ({ reservationData, overTen }) => {
         </S.TicketLeft>
         <S.TicketRight>
           <button>결제하기</button>
-          <button>예약취소</button>
+          <button onClick={cancelTravel}>예약취소</button>
         </S.TicketRight>
       </S.RightMainTicket>
     </li>

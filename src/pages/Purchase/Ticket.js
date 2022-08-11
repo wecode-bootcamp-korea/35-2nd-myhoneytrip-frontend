@@ -3,82 +3,80 @@ import S from './Styled.Ticket';
 
 const Ticket = ({ ticketData, overTen }) => {
   const {
-    Departure,
-    Arrive,
-    Month,
-    Date,
-    AirLineImg,
-    AirLine,
-    Departure_time,
-    Arrive_time,
-    AirTime,
+    departure_location_korean,
+    departure_airport_code,
+    destination_location_korean,
+    destination_airport_code,
+    month,
+    date,
+    airline,
+    flight_route_code,
+    departure_time,
+    arrival_time,
+    flight_time,
+    airline_url,
   } = ticketData;
 
   return (
     <S.Ticket>
       <S.TicketTop>
-        <span>가는편</span>
+        <span>
+          {departure_location_korean === '서울' ? '가는편' : '오는편'}
+        </span>
         <strong>
-          {Departure.name} ({Departure.code})
+          {departure_location_korean} ({departure_airport_code})
         </strong>
         <img src="/images/Purchase/ticket-top.svg" alt="" />
         <strong>
-          {Arrive.name} ({Arrive.code})
+          {destination_location_korean} ({destination_airport_code})
         </strong>
         <p>
-          {overTen(Month)}월 {overTen(Date)}일
+          {overTen(month)}월 {overTen(date)}일
         </p>
       </S.TicketTop>
       <S.TicketBottom>
         <S.TicketBottomImg>
-          <img src={AirLineImg} alt="여행사 이미지" />
-          <p>{AirLine.name}</p>
+          <img src={airline_url} alt="여행사 이미지" />
+          <p>{airline}</p>
         </S.TicketBottomImg>
         <S.TicketBottomTime>
           <S.TicketBottomDeparture>
-            <p>
-              {overTen(Departure_time.hour)}:{overTen(Departure_time.minute)}
-            </p>
-            <span>{Departure.code}</span>
+            <p>{departure_time}</p>
+            <span>{departure_airport_code}</span>
           </S.TicketBottomDeparture>
           <S.TicketBottomTotalTime>
             <S.TicketBottomArrow>
               <img src="/images/Purchase/oneway_arrow.svg" alt="" />
             </S.TicketBottomArrow>
-            <p>{AirTime}</p>
+            <p>약{flight_time}시간 20분</p>
           </S.TicketBottomTotalTime>
           <S.TicketBottomArrive>
-            <p>
-              {overTen(Arrive_time.hour)}:{overTen(Arrive_time.minute)}
-            </p>
-            <span>{Arrive.code}</span>
+            <p>{arrival_time}</p>
+            <span>{destination_airport_code}</span>
           </S.TicketBottomArrive>
         </S.TicketBottomTime>
         직항
       </S.TicketBottom>
       <S.TicketDetail>
         <p>
-          {AirLine.name} {AirLine.AirLineCode}
+          {airline}
+          <span>{flight_route_code}</span>
         </p>
         <S.TicketDetailDeparture>
-          {overTen(Month)}월 {overTen(Date)}일
+          {month}월 {date}일
         </S.TicketDetailDeparture>
         <S.TicketDetailIcon>
           <img src="/images/Purchase/departure_arrived.svg" alt="" />
         </S.TicketDetailIcon>
         <S.TicketDetailTime>
           <p>
-            <strong>
-              {overTen(Departure_time.hour)}:{overTen(Departure_time.minute)}
-            </strong>
-            {Departure.name} {Departure.code}
+            <strong>{departure_time}</strong>
+            {departure_location_korean} {departure_airport_code}
           </p>
-          <span>{AirTime}</span>
+          <span>약{flight_time}시간 20분</span>
           <p>
-            <strong>
-              {overTen(Arrive_time.hour)}:{overTen(Arrive_time.minute)}
-            </strong>
-            {Arrive.name} {Arrive.code}
+            <strong>{arrival_time}</strong>
+            {destination_location_korean} {destination_airport_code}
           </p>
         </S.TicketDetailTime>
       </S.TicketDetail>

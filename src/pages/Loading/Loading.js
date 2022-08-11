@@ -4,6 +4,9 @@ import S from './Styled.Loading';
 const Loading = ({ loadingData }) => {
   const { arrive_name, arrive_name_code, departure_day, arrive_day } =
     loadingData;
+  const overTen = num => {
+    return num > 9 ? num : '0' + num;
+  };
   return (
     <S.Loading>
       <S.Video
@@ -24,7 +27,7 @@ const Loading = ({ loadingData }) => {
             <S.MiddleData>
               <strong>SEL</strong>
               <span>서울</span>
-              <span>{departure_day}</span>
+              <span>2022년 08월 {overTen(departure_day)}일</span>
             </S.MiddleData>
             <S.MiddleArrow>
               <img src="/images/Loading_arrow.svg" alt="" />
@@ -32,7 +35,7 @@ const Loading = ({ loadingData }) => {
             <S.MiddleData>
               <strong>{arrive_name_code}</strong>
               <span>{arrive_name}</span>
-              <span>{arrive_day}</span>
+              <span>2022년 08월 {overTen(arrive_day)}일</span>
             </S.MiddleData>
           </S.TextMiddle>
         </S.TextBox>

@@ -13,10 +13,6 @@ const FlightList = ({
   const navigate = useNavigate();
   const [sendingData, setSendingData] = useState([]);
 
-  const savePurchase = ticket => {
-    navigate({ state: ticket });
-  };
-
   const goToPurchase = ticket => {
     alert('선택한 항공편 예약페이지로 이동합니다.');
     navigate('/purchase', { state: ticket });
@@ -80,7 +76,6 @@ const FlightList = ({
                       <TicketBox
                         key={props.id}
                         ticket={props}
-                        savePurchase={savePurchase}
                         goToPurchase={goToPurchase}
                         sendingData={sendingData}
                         setSendingData={setSendingData}

@@ -7,7 +7,6 @@ S.ReservationData = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 40px;
 `;
 
 S.ReservationTitle = styled.h1`
@@ -15,6 +14,7 @@ S.ReservationTitle = styled.h1`
   margin-bottom: 20px;
   font-size: 30px;
   font-weight: 600;
+  margin-top: 110px;
 `;
 
 S.ReservationMain = styled.div`

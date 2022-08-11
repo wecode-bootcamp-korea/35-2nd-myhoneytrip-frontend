@@ -29,8 +29,25 @@ const RecentSearch = () => {
     };
     const destinationLocation = destinationMatch[destination];
 
+    const loadingDataMatch = {
+      '☀️ 몰디브': ['MLE', '몰디브'],
+      '🏝 발리': ['DPS', '발리'],
+      '🏖 하와이': ['HNL', '하와이'],
+      '🌊 칸쿤': ['CUN', '칸쿤'],
+    };
+
+    const loadingLocationCode = loadingDataMatch[destination];
+
     navigate(
-      `/reservation?departure_name=${DEPARTURE_LOCATION}&destination_name=${destinationLocation}&departure_date=${departureDate}&return_date=${returnDate}&passenger=${passengerCount}`
+      `/reservation?departure_name=${DEPARTURE_LOCATION}&destination_name=${destinationLocation}&departure_date=${departureDate}&return_date=${returnDate}&passenger=${passengerCount}`,
+      {
+        state: {
+          arrive_name: loadingLocationCode[1],
+          arrive_name_code: loadingLocationCode[0],
+          departure_day: departureDate,
+          arrive_day: returnDate,
+        },
+      }
     );
   };
 
@@ -56,9 +73,9 @@ const RecentSearch = () => {
             element;
 
           const [startMonth, startDate, endMonth, endDate] = [
-            new Date(departureDate).getMonth(),
+            new Date(departureDate).getMonth() + 1,
             new Date(departureDate).getDate(),
-            new Date(returnDate).getMonth(),
+            new Date(returnDate).getMonth() + 1,
             new Date(returnDate).getDate(),
           ];
 

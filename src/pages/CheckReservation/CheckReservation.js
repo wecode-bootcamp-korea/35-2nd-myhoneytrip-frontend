@@ -8,7 +8,9 @@ const CheckReservation = () => {
   const [currentTab, setCurrentTab] = useState('예정된 여행');
 
   useEffect(() => {
-    fetch('/data/Reservation_Data-1.json')
+    fetch(`http://3.139.66.73:8001/bookings/mytrip?status=upcoming`, {
+      headers: { Authorization: localStorage.getItem('token') },
+    })
       .then(res => res.json())
       .then(data => setReservationData(data.result));
     fetch('/data/Tab_Data.json')
@@ -17,7 +19,9 @@ const CheckReservation = () => {
   }, []);
 
   const handleCurrentTab = (id, title) => {
-    fetch(`/data/Reservation_Data-${id}.json`)
+    fetch(`http://3.139.66.73:8001/bookings/mytrip?status=${id}`, {
+      headers: { Authorization: localStorage.getItem('token') },
+    })
       .then(res => res.json())
       .then(data => setReservationData(data.result));
     setCurrentTab(title);
@@ -48,13 +52,13 @@ const CheckReservation = () => {
           <S.RightTitle>2022년</S.RightTitle>
           <S.RightMain>
             <ul>
-              {reservationData ? (
-                reservationData.map(data => {
+              {Object.keys(reservationData).length !== 0 ? (
+                reservationData.map((data, idx) => {
                   return (
                     <ReservationTicket
                       reservationData={data}
                       overTen={overTen}
-                      key={data.booking.booking_id}
+                      key={idx}
                     />
                   );
                 })

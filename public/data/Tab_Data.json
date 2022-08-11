@@ -1,5 +1,5 @@
 [
-  { "id": 1, "title": "예정된 여행" },
-  { "id": 2, "title": "지난 여행" },
-  { "id": 3, "title": "취소된 여행" }
+  { "id": "upcoming", "title": "예정된 여행" },
+  { "id": "last", "title": "지난 여행" },
+  { "id": "canceled", "title": "취소된 여행" }
 ]

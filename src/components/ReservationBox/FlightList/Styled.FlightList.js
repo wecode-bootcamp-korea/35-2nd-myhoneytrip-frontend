@@ -39,7 +39,7 @@ S.ReservationInfoContainer = styled.div`
 
 S.SideSelectAirplanes = styled.div`
   position: sticky;
-  top: 80px;
+  top: 100px;
   left: 20px;
   padding-top: 0px;
   margin: 0 30px 200px 0;

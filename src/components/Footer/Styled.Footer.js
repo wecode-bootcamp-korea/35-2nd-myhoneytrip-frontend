@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const S = {};
 S.FooterAll = styled.div`
+  z-index: -1;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,6 +57,7 @@ S.Chatting = styled.button`
   background-color: transparent;
   color: black;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 S.MapTitle = styled.div`
@@ -70,6 +72,7 @@ S.MapContent = styled.div`
   font-size: 15px;
   font-weight: 300;
   line-height: 1.5;
-  color: #c7cdcf;
+  color: #333;
+  cursor: pointer;
 `;
 export default S;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import TableData from './TableData';
 import PurchasePrice from './PurchasePrice';
 import S from './Styled.PassengerData';
@@ -14,12 +15,12 @@ const PassengerData = () => {
     backNumber: '',
   });
   const [passengerData, setPassengerData] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/Ticket_data.json')
-      .then(res => res.json())
-      .then(data => setTicketData(data));
-  }, []);
+    setTicketData(location.state);
+  }, [location.state]);
 
   if (Object.keys(ticketData).length === 0) return <>Loading...</>;
 
@@ -66,27 +67,38 @@ const PassengerData = () => {
     firstPhone.length !== 0 &&
     frontNumber.length === 4 &&
     backNumber.length === 4 &&
-    PassengerDataArr.length === Departure_Data.person;
+    PassengerDataArr.length === Number(Departure_Data.passengers);
 
-  // const BookerData = {
-  //   BookerName: bookerName,
-  //   BookerEmail: frontMail + '@' + mail,
-  //   BookerPhone: firstPhone + frontNumber + backNumber,
-  // };
+  const BookerData = {
+    BookerName: bookerName,
+    BookerEmail: id + '@' + mail,
+    BookerPhone: firstPhone + frontNumber + backNumber,
+  };
 
-  // const { BookerName, BookerEmail, BookerPhone } = BookerData;
+  const { BookerName, BookerEmail, BookerPhone } = BookerData;
 
-  // const fetchData = () => {
-  //   fetch('http://10.58.2.200:8000/bookings/reservation', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       booker_name: BookerName,
-  //       booker_email: BookerEmail,
-  //       booker_mobile_number: BookerPhone,
-  //       passengers: passengerData,
-  //     }),
-  //   });
-  // };
+  const fetchData = () => {
+    fetch('http://3.139.66.73:8001/bookings', {
+      method: 'POST',
+      headers: { Authorization: localStorage.getItem('token') },
+      body: JSON.stringify({
+        booker_name: BookerName,
+        booker_email: BookerEmail,
+        booker_mobile_number: BookerPhone,
+        passengers: PassengerDataArr,
+        flight_detail_id: [
+          Departure_Data.flight_detail_id,
+          Arrive_Data.flight_detail_id,
+        ],
+      }),
+    })
+      .then(res => res.json())
+      .then(
+        data =>
+          data.message === 'SUCCESS' &&
+          (alert('예약이 완료되었습니다.'), navigate('/'))
+      );
+  };
 
   return (
     <S.PassengerReservation>
@@ -95,25 +107,25 @@ const PassengerData = () => {
           <S.Ticket>
             <S.TicketTitle>
               <div>
-                <p>{Departure_Data.Departure.name}</p>{' '}
-                <span>{Departure_Data.Departure.code}</span>
+                <p>{Departure_Data.departure_location_korean}</p>{' '}
+                <span>{Departure_Data.departure_airport_code}</span>
               </div>
               <div>
                 <img src="/images/Purchase/twoway_arrow.svg" alt="화살표" />
                 <span>
-                  {overTen(Departure_Data.Month)}월{' '}
-                  {overTen(Departure_Data.Date)}일 -{' '}
-                  {overTen(Arrive_Data.Month)}월 {overTen(Arrive_Data.Date)}일
+                  {overTen(Departure_Data.month)}월{' '}
+                  {overTen(Departure_Data.date)}일 -{' '}
+                  {overTen(Arrive_Data.month)}월 {overTen(Arrive_Data.date)}일
                 </span>
               </div>
               <div>
-                <p>{Departure_Data.Arrive.name}</p>{' '}
-                <span>{Departure_Data.Arrive.code}</span>
+                <p>{Departure_Data.destination_location_korean}</p>{' '}
+                <span>{Departure_Data.destination_airport_code}</span>
               </div>
             </S.TicketTitle>
             <S.TicketTitleInfo>
-              <img src={Departure_Data.AirLineImg} alt="항공사 이미지" />
-              <span>{Departure_Data.AirLine.name}</span>
+              <img src={Departure_Data.airline_url} alt="항공사 이미지" />
+              <span>{Departure_Data.airline}</span>
             </S.TicketTitleInfo>
             <S.TicketTitleInfo>
               <p>운항종류</p>
@@ -121,7 +133,7 @@ const PassengerData = () => {
             </S.TicketTitleInfo>
             <S.TicketTitleInfo>
               <p>승객</p>
-              <span>{Departure_Data.person}명</span>
+              <span>{Departure_Data.passengers}명</span>
             </S.TicketTitleInfo>
           </S.Ticket>
           <S.AirInfo>
@@ -151,6 +163,7 @@ const PassengerData = () => {
           </S.AirInfo>
           <S.CheckNotice>
             <ul>
+              <li>시간은 현지 시간으로 계산된 시간입니다.</li>
               <li>
                 공동운항편 탑승수속은 실제 운항항공사 카운터를 이용해 주시기
                 바라며, 규정에 따라 탑승 수속 마감시간이 상이할 수 있으니 반드시
@@ -267,7 +280,7 @@ const PassengerData = () => {
             </ul>
           </S.BookingNotice>
           <S.InfoTitle>탑승객 정보</S.InfoTitle>
-          {[...Array(Departure_Data.person)].map((n, idx) => {
+          {[...Array(Number(Departure_Data.passengers))].map((n, idx) => {
             const handlePassengerData = e => {
               const { name, value } = e.target;
               setPassengerData({
@@ -319,7 +332,7 @@ const PassengerData = () => {
                 <S.PassengerBirth>
                   <label htmlFor="phone">생년월일</label>
                   <input
-                    type="number"
+                    type="text"
                     name="year"
                     onInput={handlePhone}
                     title="연도 입력"
@@ -375,8 +388,10 @@ const PassengerData = () => {
             </ul>
           </S.PurchaseNotice>
           <S.PurchaseButton>
-            <button disabled={!isValid}>예약하기</button>
-            {/* <button onClick={fetchData}>결제하기</button> */}
+            {/* <button disabled={!isValid}>예약하기</button> */}
+            <button disabled={!isValid} onClick={fetchData}>
+              결제하기
+            </button>
           </S.PurchaseButton>
         </S.PurchaseRight>
       </S.Reservation>
