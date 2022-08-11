@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import Reservation from './pages/Reservation/Reservation';
 import Purchase from './pages/Purchase/Purchase';
@@ -32,6 +33,7 @@ function Router() {
           <Route path="/checkreservation" element={<CheckReservation />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

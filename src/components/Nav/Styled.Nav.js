@@ -29,6 +29,7 @@ S.ImgBox = styled.img`
   border: 0;
   width: 150px;
   cursor: pointer;
+  cursor: pointer;
 `;
 
 S.LoginBox = styled.div`
@@ -48,6 +49,10 @@ S.Button = styled.img`
   width: 35px;
   transform: translate(9px, 9px);
   cursor: pointer;
+  &:hover {
+    transform: translateY((2rem));
+    transition: 2s;
+  }
 `;
 
 S.Button_none = styled.button`

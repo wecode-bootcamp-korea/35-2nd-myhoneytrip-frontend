@@ -54,6 +54,7 @@ const Nav = () => {
                 src="/images/Nav/bee.png"
               ></S.Button>
             )}
+            <S.Button onClick={goToMypage} src="/images/Nav/bee.png"></S.Button>
           </S.LoginArea>
         </S.LoginBox>
       </S.Container>
