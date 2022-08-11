@@ -34,6 +34,7 @@ S.PurchaseRightTotal = styled.div`
       color: #999;
       text-align: end;
       font-size: 13px;
+      margin-top: 5px;
     }
   }
 `;
@@ -53,11 +54,11 @@ S.PurchaseRightPriceDetail = styled.div`
   margin: 5px 0;
 
   div:first-child {
-    width: 25%;
+    width: 30%;
   }
 
   div:last-child {
-    width: 25%;
+    width: 30%;
     text-align: end;
   }
 `;

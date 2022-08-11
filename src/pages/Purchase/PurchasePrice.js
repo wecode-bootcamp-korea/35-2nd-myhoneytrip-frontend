@@ -7,37 +7,44 @@ const PurchasePrice = ({ Departure_Data, Arrive_Data }) => {
   };
 
   const airPrice =
-    (Departure_Data.price + Arrive_Data.price) * Departure_Data.person;
+    Math.floor(
+      ((Departure_Data.price * 0.6 + Arrive_Data.price * 0.6) *
+        Arrive_Data.passengers) /
+        10
+    ) * 10;
 
   const fuelPrice =
     Math.floor(
-      ((Departure_Data.price * (4 / 3) + Arrive_Data.price * (4 / 3)) *
-        Departure_Data.person) /
+      ((Departure_Data.price * 0.3 + Arrive_Data.price * 0.3) *
+        Arrive_Data.passengers) /
         10
     ) * 10;
 
   const taxPrice =
-    (Departure_Data.price / 2 + Arrive_Data.price / 2) * Departure_Data.person;
-
+    Math.floor(
+      ((Departure_Data.price * 0.1 + Arrive_Data.price * 0.1) *
+        Arrive_Data.passengers) /
+        10
+    ) * 10;
   return (
     <>
       <S.PurchaseRightPeople>
-        성인 <strong>{Departure_Data.person}</strong>명
+        성인 <strong>{Departure_Data.passengers}</strong>명
       </S.PurchaseRightPeople>
       <S.PurchaseRightPrice>
         <S.PurchaseRightPriceDetail>
           <div>항공요금</div>
-          <div>{Departure_Data.person}명</div>
+          <div>{Departure_Data.passengers}명</div>
           <div>{numToLocale(airPrice)}원</div>
         </S.PurchaseRightPriceDetail>
         <S.PurchaseRightPriceDetail>
           <div>유류할증료</div>
-          <div>{Departure_Data.person}명</div>
+          <div>{Departure_Data.passengers}명</div>
           <div>{numToLocale(fuelPrice)}원</div>
         </S.PurchaseRightPriceDetail>
         <S.PurchaseRightPriceDetail>
           <div>제세공과금</div>
-          <div>{Departure_Data.person}명</div>
+          <div>{Departure_Data.passengers}명</div>
           <div>{numToLocale(taxPrice)}원</div>
         </S.PurchaseRightPriceDetail>
       </S.PurchaseRightPrice>

@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import DetailCost from '../DetailCost/DetailCost';
 import S from './Styled.TicketBox';
 
-const TicketBox = ({
-  ticket,
-  savePurchase,
-  goToPurchase,
-  sendingData,
-  setSendingData,
-}) => {
+const TicketBox = ({ ticket, goToPurchase, sendingData, setSendingData }) => {
   const [isShowDetailView, setIsShowDetailView] = useState(false);
 
   const {
@@ -24,7 +18,6 @@ const TicketBox = ({
     passengers,
     remaining_seats,
   } = ticket;
-
   return (
     <S.Ticket key={flight_detail_id}>
       <S.TicketBoxs>

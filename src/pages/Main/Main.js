@@ -56,6 +56,15 @@ const Main = () => {
     };
     const destinationLocation = destinationMatch[selectedValue];
 
+    const loadingDataMatch = {
+      '☀️ 몰디브': ['MLE', '몰디브'],
+      '🏝 발리': ['DPS', '발리'],
+      '🏖 하와이': ['HNL', '하와이'],
+      '🌊 칸쿤': ['CUN', '칸쿤'],
+    };
+
+    const loadingLocationCode = loadingDataMatch[selectedValue];
+
     const dateMatch = {
       ...(patternChange
         ? {
@@ -80,7 +89,15 @@ const Main = () => {
     localStorage.setItem('recentData', JSON.stringify(newSearchArray));
 
     navigate(
-      `/reservation?departure_name=${DEPARTURE_LOCATION}&destination_name=${destinationLocation}&departure_date=${dateMatch.departureDate}&return_date=${dateMatch.returnDate}&passenger=${count}`
+      `/reservation?departure_name=${DEPARTURE_LOCATION}&destination_name=${destinationLocation}&departure_date=${dateMatch.departureDate}&return_date=${dateMatch.returnDate}&passenger=${count}`,
+      {
+        state: {
+          arrive_name: loadingLocationCode[1],
+          arrive_name_code: loadingLocationCode[0],
+          departure_day: dateMatch.departureDate,
+          arrive_day: dateMatch.returnDate,
+        },
+      }
     );
   };
 

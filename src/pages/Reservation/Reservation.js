@@ -15,7 +15,7 @@ const Reservation = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch(`http://35.90.169.104:8000/flights${queryString}`)
+      fetch(`http://3.139.66.73:8001/flights${queryString}`)
         .then(res => res.json())
         .then(data => setFlightData(data));
     }, 3000);
@@ -43,7 +43,7 @@ export default Reservation;
 const flexDirectionColumn = css`
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 100px;
 `;
 
 const ReservationFlight = styled.div`

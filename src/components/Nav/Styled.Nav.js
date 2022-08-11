@@ -10,14 +10,10 @@ S.Header = styled.header`
   height: 72px;
   padding: 0 30px;
   margin: 0 auto;
-<<<<<<< HEAD
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-  z-index: 99;
-=======
-  background-color: transparent;
+  background-color: white;
   z-index: 98;
->>>>>>> 3ef6d46 (Add loading page)
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 3%), 0 2px 6px 0 rgb(0 0 0 / 2%),
+    0 4px 4px 0 rgb(0 0 0 / 5%);
 `;
 
 S.Container = styled.div`
@@ -49,14 +45,12 @@ S.LoginArea = styled.div`
 `;
 
 S.Button = styled.img`
-  border: 1px solid white;
-  border-radius: 50%;
   width: 35px;
-  transform: translate(9px, 9px);
+  transform: translate(5px, 11px);
   cursor: pointer;
   &:hover {
-    transform: translateY((2rem));
-    transition: 2s;
+    transform: scale(1.2);
+    transition: all ease 1s;
   }
 `;
 
@@ -67,14 +61,14 @@ S.Button_none = styled.button`
   margin: 3px;
   background-color: transparent;
   border-radius: 2px;
-  color: white;
+  color: #999;
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s ease 0s;
 
   &:hover {
-    color: rgb(255, 255, 255);
+    color: #e57fca;
     background-color: rgba(255, 255, 255, 0.2);
   }
 `;
@@ -83,17 +77,17 @@ S.Button_border = styled.button`
   width: 120px;
   padding: 8px 12px;
   margin: 3px;
-  border: 1px solid white;
+  border: 1px solid #999;
   border-radius: 2px;
   background-color: transparent;
-  color: white;
+  color: #999;
   font-weight: bold;
   font-size: 14px;
   transition: background-color 0.2s ease 0s;
   cursor: pointer;
 
   &:hover {
-    color: rgb(255, 255, 255);
+    color: #e57fca;
     background-color: rgba(255, 255, 255, 0.2);
   }
 `;

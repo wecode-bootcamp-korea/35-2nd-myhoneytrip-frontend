@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Ticket from './Ticket';
 import PurchasePrice from './PurchasePrice';
 import S from './Styled.Purchase';
@@ -7,15 +7,14 @@ import S from './Styled.Purchase';
 const Purchase = () => {
   const [ticketData, setTicketData] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
-    fetch('/data/Ticket_data.json')
-      .then(res => res.json())
-      .then(data => setTicketData(data));
-  }, []);
-
+    setTicketData(location.state);
+  }, [location.state]);
   if (Object.keys(ticketData).length === 0) return <>Loading...</>;
 
-  const { Departure_Data, Arrive_Data } = ticketData;
+  const [Departure_Data, Arrive_Data] = ticketData;
+
   const goBack = () => {
     navigate(-1);
   };
@@ -44,15 +43,15 @@ const Purchase = () => {
         </S.PurchaseLeft>
         <S.PurchaseRight>
           <S.PurchaseRightTitle>
-            {Departure_Data.Departure.name}
+            {Departure_Data.departure_location_korean}
             <strong>
               <img src="/images/Purchase/twoway_arrow_short.svg" alt="" />
             </strong>
-            {Arrive_Data.Departure.name}
+            {Departure_Data.destination_location_korean}
             <p>
-              {overTen(Departure_Data.Month)}월 {overTen(Departure_Data.Date)}일
-              - {overTen(Arrive_Data.Month)}월 {overTen(Arrive_Data.Date)}일 ·
-              승객 {Departure_Data.person}명
+              {Departure_Data.month}월 {Departure_Data.date}일 -{' '}
+              {Arrive_Data.month}월 {Arrive_Data.date}일 · 승객{' '}
+              {Departure_Data.passengers}명
             </p>
           </S.PurchaseRightTitle>
           <PurchasePrice
@@ -62,7 +61,18 @@ const Purchase = () => {
         </S.PurchaseRight>
       </S.PurchaseInfo>
       <S.ReservationButton>
-        <button onClick={() => navigate('/passengerdata')}>예약하기</button>
+        <button
+          onClick={() =>
+            navigate('/passengerdata', {
+              state: {
+                Departure_Data: Departure_Data,
+                Arrive_Data: Arrive_Data,
+              },
+            })
+          }
+        >
+          예약하기
+        </button>
       </S.ReservationButton>
     </S.SearchInfo>
   );

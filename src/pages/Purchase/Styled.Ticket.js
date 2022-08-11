@@ -124,6 +124,9 @@ S.TicketDetail = styled.div`
   height: 140px;
   font-size: 14px;
   padding: 25px;
+  span {
+    margin-left: 14px;
+  }
 `;
 
 S.TicketDetailDeparture = styled.div`

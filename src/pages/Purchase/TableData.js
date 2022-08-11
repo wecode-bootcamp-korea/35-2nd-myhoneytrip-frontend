@@ -2,35 +2,36 @@ import React from 'react';
 
 const TableData = ({ data, overTen }) => {
   const {
-    id,
-    AirLine,
-    Departure,
-    Departure_time,
-    Arrive,
-    Arrive_time,
-    Month,
-    Date,
-    Day,
-    person,
+    departure_location_korean,
+    departure_airport_code,
+    destination_location_korean,
+    month,
+    date,
+    flight_route_code,
+    day,
+    departure_time,
+    arrival_time,
+    passengers,
   } = data;
+  const day_korean = ['일', '월', '화', '수', '목', '금', '토'];
   return (
     <tr>
-      <td>{id === 1 ? '가는날' : '오는날'}</td>
-      <td>{AirLine.AirLineCode}편</td>
+      <td>{departure_airport_code === 'SEL' ? '가는날' : '오는날'}</td>
+      <td>{flight_route_code}편</td>
       <td>
-        {Departure.name} - {Arrive.name}
+        {departure_location_korean} - {destination_location_korean}
       </td>
       <td>
-        {overTen(Month)}월 {overTen(Date)}일 ({Day})
+        {overTen(month)}월 {overTen(date)}일 ({day_korean[day]})
         <br />
-        {overTen(Departure_time.hour)}:{overTen(Departure_time.minute)}
+        {departure_time}
       </td>
       <td>
-        {overTen(Month)}월 {overTen(Date)}일 ({Day})
+        {overTen(month)}월 {overTen(date)}일 ({day_korean[day]})
         <br />
-        {overTen(Arrive_time.hour)}:{overTen(Arrive_time.minute)}
+        {arrival_time}
       </td>
-      <td>{person}석</td>
+      <td>{passengers}석</td>
     </tr>
   );
 };

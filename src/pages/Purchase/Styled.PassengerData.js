@@ -13,6 +13,7 @@ S.Reservation = styled.div`
   justify-content: center;
   width: 1200px;
   padding: 40px 0;
+  margin-top: 60px;
 `;
 
 S.DataLeft = styled.div`
@@ -140,6 +141,9 @@ S.CheckNotice = styled.div`
       color: #666d75;
       font-size: 12px;
       line-height: 1.5;
+      &:first-child {
+        color: #e57fca;
+      }
     }
   }
 `;
@@ -498,7 +502,7 @@ S.PassengerSex = styled.div`
           border: 1px solid #e57fca !important;
           font-weight: 600;
           color: #fff;
-          z-index: 100;
+          z-index: 5;
         }
 
         &:hover + label {
