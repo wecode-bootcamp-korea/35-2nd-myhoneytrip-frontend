@@ -78,7 +78,7 @@ const PassengerData = () => {
   const { BookerName, BookerEmail, BookerPhone } = BookerData;
 
   const fetchData = () => {
-    fetch('http://3.139.66.73:8001/bookings', {
+    fetch('http://54.180.2.226:8001/bookings', {
       method: 'POST',
       headers: { Authorization: localStorage.getItem('token') },
       body: JSON.stringify({

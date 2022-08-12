@@ -63,12 +63,14 @@ const Purchase = () => {
       <S.ReservationButton>
         <button
           onClick={() =>
-            navigate('/passengerdata', {
-              state: {
-                Departure_Data: Departure_Data,
-                Arrive_Data: Arrive_Data,
-              },
-            })
+            localStorage.getItem('token') === null
+              ? (alert('로그인이 필요합니다.'), navigate('/login'))
+              : navigate('/passengerdata', {
+                  state: {
+                    Departure_Data: Departure_Data,
+                    Arrive_Data: Arrive_Data,
+                  },
+                })
           }
         >
           예약하기
