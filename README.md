@@ -1,5 +1,4 @@
 # PROJECT : myhoneytrip🐝
-<http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/>
 
 ### • 프로젝트 소개
 >**마이리얼트립을 모티브로 한 항공권 예매사이트**  
@@ -10,15 +9,15 @@
 ### • 팀원 소개
 > wecode 35기 2차 프로젝트 마이허니트립 TEAM
 
-  **FE** | 구단희, 김익현, 신수정, 이강철(PM)
+  **FE** | 구단희, 김익현, 신수정, 이강철(PM)  
   **BE** | 황유정, 음정민, 안상현
   
 ### • 사용기술 및 협업 도구  
-> FE: Javascript, React, React-Router, styled-components
->     library : slick slide, react date picker, mui modal, mul table
-> BE: Phython, Django, MySQL
-> Common : Git&Github, AWS
-> Comunication : Notion, Slack, Trello
+> FE: Javascript, React, React-Router, styled-components  
+>     library : slick slide, react date picker, mui modal, mul table  
+> BE: Phython, Django, MySQL, MINICONDA3, POSTMAN  
+> Common : Git&Github, AWS 
+> Comunication : Notion, Slack, Trello, Github 
 
 ### • 구현기능 및 사용 기술 소개 
 
@@ -28,6 +27,12 @@
 신수정 : 검색 상품 리스트 페이지, 검색 결과 filtering
 이강철 : 메인 검색창 (캘린더 라이브러리), 최근 검색 항공편 배너 노출
 ```
+
+### • Site DEMO
+
+https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-9c61-a79ed58b75f0.mov  
+
+<http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/>
 
 #### 1. 카카오 로그인 API (FE 구단희)
 ##### - useEffect를 활용한 인가코드 발급을 서버로 전달
