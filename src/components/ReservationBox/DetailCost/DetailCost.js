@@ -25,6 +25,8 @@ const DetailCost = ({ flightData }) => {
     price,
     flight_time,
     passengers,
+    departure_location_korean,
+    destination_location_korean,
   } = flightData;
 
   return (
@@ -35,12 +37,12 @@ const DetailCost = ({ flightData }) => {
             <S.DetailBoxTopInfo>
               <S.TopInfoDeparture>비행편 안내</S.TopInfoDeparture>
               <S.TopInfoConstant>
-                {departure_location} ({departure_airport_code})
+                {departure_location_korean} ({departure_airport_code})
                 <img
                   src="/images/Reservation/oneway_arrow_short.svg"
                   alt="arrow"
                 />
-                {destination_location} ({destination_airport_code})
+                {destination_location_korean} ({destination_airport_code})
               </S.TopInfoConstant>
             </S.DetailBoxTopInfo>
             <S.TopInfoTravelTime>약 {flight_time}시간 20분</S.TopInfoTravelTime>
@@ -56,12 +58,12 @@ const DetailCost = ({ flightData }) => {
             <div>
               <p>
                 <span>{departure_time}</span>
-                {departure_location} ({departure_airport_code})
+                {departure_location_korean} ({departure_airport_code})
               </p>
               <p>약 {flight_time}시간 20분</p>
               <p>
                 <span>{arrival_time}</span>
-                {destination_location} ({destination_airport_code})
+                {destination_location_korean} ({destination_airport_code})
               </p>
             </div>
           </S.DetailBoxMiddleFlightDay>

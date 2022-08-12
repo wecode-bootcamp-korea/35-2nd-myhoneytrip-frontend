@@ -22,7 +22,7 @@ const ReservationData = ({ reservationData, overTen }) => {
   )}일 (${day[newDate.getDay()]})`;
 
   const cancelTravel = () => {
-    fetch('http://3.139.66.73:8001/bookings/mytrip', {
+    fetch('http://54.180.2.226:8001/bookings/mytrip', {
       method: 'PATCH',
       headers: { Authorization: localStorage.getItem('token') },
       body: JSON.stringify({ booking_id: booking_id }),
@@ -56,12 +56,22 @@ const ReservationData = ({ reservationData, overTen }) => {
             </S.LeftTicketInfo>
           </S.LeftTicketName>
           <S.LeftTicketStatus>
-            <p>결제 요청 전입니다. 결제시한 내 결제를 진행해주세요.</p>
+            <p>
+              {booking_status === 'CANCELED'
+                ? '취소된 항공권입니다, 다시 예약해주세요.'
+                : '결제 요청 전입니다. 결제시한 내 결제를 진행해주세요.'}
+            </p>
           </S.LeftTicketStatus>
         </S.TicketLeft>
         <S.TicketRight>
-          <button>결제하기</button>
-          <button onClick={cancelTravel}>예약취소</button>
+          {booking_status === 'CANCELED' ? (
+            <button onClick={() => navigate('/')}>다시 예약하러가기</button>
+          ) : (
+            <>
+              <button>결제하기</button>
+              <button onClick={cancelTravel}>예약취소</button>
+            </>
+          )}
         </S.TicketRight>
       </S.RightMainTicket>
     </li>

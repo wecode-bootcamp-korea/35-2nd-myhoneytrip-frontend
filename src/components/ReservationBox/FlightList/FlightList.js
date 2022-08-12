@@ -113,7 +113,7 @@ const FlightList = ({
                 </S.SoartingSelectBox>
               </S.SoartingContainer>
               <S.TicketBoxContainer>
-                {departureList.length === 0 ? (
+                {returnList.length === 0 ? (
                   <S.ticketNone>
                     <p>🥲</p>
                     일치하는 결과가 없습니다.

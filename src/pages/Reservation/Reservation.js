@@ -14,11 +14,10 @@ const Reservation = () => {
   const loadingData = location.state;
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch(`http://3.139.66.73:8001/flights${queryString}`)
-        .then(res => res.json())
-        .then(data => setFlightData(data));
-    }, 3000);
+    fetch(`http://54.180.2.226:8001/flights${queryString}`)
+      .then(res => res.json())
+      .then(data => setFlightData(data));
+
     // fetch('/data/Reservation/Flight_data.json')
   }, [queryString]);
 
