@@ -34,69 +34,40 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
 
 <http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/>
 
-#### 1. 카카오 로그인 API (FE 구단희)
-##### - useEffect를 활용한 인가코드 발급을 서버로 전달
-```
-  useEffect(() => {
-    fetch(`http://10.58.5.90:8000/users/signin/kakao`, {
-      method: 'POST',
-      body: JSON.stringify({ authorize_code: code }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'SUCCESS') {
-          localStorage.setItem('token', res.token);
-          localStorage.setItem('kakaotoken', res.kakao_token);
-          navigate('/');
-        }
-      });
-  }, [code, navigate]);
-};
-```
-#### 2. 메인 페이지
-##### - Slick library를 활용한 Carousel (FE 구단희)
-##### - Search Bar 클릭 시 모달 및 달력 모달창 library 구현 (FE 이강철)
-##### - 최근 검색 결과 상위 배너로 노출 (FE 이강철)
-##### - mock data로 호출한 추천상품 노출 (FE 이강철)
+#### 1. 카카오 로그인 API  
+- useEffect를 활용한 인가코드 발급을 서버로 전달 (FE 구단희)  
 
+#### 2. 메인 페이지. 
+- Slick library를 활용한 Carousel (FE 구단희). 
+- Search Bar 클릭 시 모달 및 달력 모달창 library 구현 (FE 이강철)  
+- 최근 검색 결과 상위 배너로 노출 (FE 이강철)  
+- mock data로 호출한 추천상품 노출 (FE 이강철)  
 
 ####  3. 검색 상품 리스트 페이지
-##### - 데이터를 불러오기 전 로딩페이지 구현 + 간지나는 동영상 첨부 (FE 김익현)
-##### - useLocation을 활용해 querystring을 받아와 서버 데이터 요청 (FE 신수정)
-##### - selectbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)
-##### - useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 신수정)
-```
-<S.FlightCostBox
-           onClick={() => {
-           const newSendingData = [...sendingData];
-           departure_airport_code === 'SEL'
-          ? (newSendingData[0] = ticket)
-          : (newSendingData[1] = ticket);
-          setSendingData([...newSendingData]);
-          departure_airport_code !== 'SEL' &&
-          goToPurchase(newSendingData);
-       }}
-    >
-```   
-#### 4. 구매 상품 확인 페이지 (FE 김익현)
-##### - useLocation을 활용해 이전 페이지에서 보내준 데이터 시각화 
-##### - useNavtigate안에 데이터를 담아 다음 페이지로 전달
+- 데이터를 불러오기 전 로딩페이지 구현 (FE 김익현)   
+- useLocation을 활용해 querystring을 받아와 서버 데이터 요청 (FE 신수정)  
+- selectbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)  
+- useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 신수정)  
 
-#### 5. 탑승객 및 예약자 정보 입력 페이지 (FE 김익현)
-##### - 가상의 배열을 만들어 탑승객 수만큼 입력 페이지 생성
-##### - 서버로 전달하기 위한 데이터 가공
+#### 4. 구매 상품 확인 페이지  
+- useLocation을 활용해 이전 페이지에서 보내준 데이터 시각화 (FE 김익현)  
+- useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 김익현)  
 
-#### 6. 마이 페이지 - 예약확인 및 예약취소 (FE 김익현)
-##### - 현재 탭에 따른 데이터 요청 예약취소 시 patch를 사용해 데이터 상태 변경  
+#### 5. 탑승객 및 예약자 정보 입력 페이지
+- 가상의 배열을 만들어 탑승객 수만큼 입력 페이지 생성 (FE 김익현)  
+- 서버로 전달하기 위한 데이터 가공 (FE 김익현)  
 
-#### 7. NAV (FE 구단희)
-##### - 로그인/로그아웃 상태변경 및 마이페이지 이동 구현
+#### 6. 마이 페이지 - 예약확인 및 예약취소 
+- 현재 탭에 따른 데이터 요청 예약취소 시 patch를 사용해 데이터 상태 변경 (FE 김익현)    
+
+#### 7. NAV 
+- 로그인/로그아웃 상태변경 및 마이페이지 이동 구현 (FE 구단희)  
  
-#### 8. Footer (FE 구단희)
-##### - 상수데이터 활용하여 구성
+#### 8. Footer
+- 상수데이터 활용하여 구성 (FE 구단희)  
 
 ### • 참고
 #####
-이 프로젝트는 Bang & Olufsen 사이트를 참조하여 학습 목적으로 만들었습니다.  
+이 프로젝트는 마이리얼트립 사이트를 참조하여 학습 목적으로 만들었습니다.  
 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.  
 이 프로젝트에 사용된 모든 영상 및 이미지, 폰트 정보는 저작자 표기가 필요하지 않는 Royalty-free를 사용했습니다.  
