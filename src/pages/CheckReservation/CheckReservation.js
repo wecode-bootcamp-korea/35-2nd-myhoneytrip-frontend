@@ -8,7 +8,7 @@ const CheckReservation = () => {
   const [currentTab, setCurrentTab] = useState('예정된 여행');
 
   useEffect(() => {
-    fetch(`http://54.180.2.226:8001/bookings/mytrip?status=upcoming`, {
+    fetch(`http://3.36.97.191:8001/bookings/mytrip?status=upcoming`, {
       headers: { Authorization: localStorage.getItem('token') },
     })
       .then(res => res.json())
@@ -19,7 +19,7 @@ const CheckReservation = () => {
   }, []);
 
   const handleCurrentTab = (id, title) => {
-    fetch(`http://54.180.2.226:8001/bookings/mytrip?status=${id}`, {
+    fetch(`http://3.36.97.191:8001/bookings/mytrip?status=${id}`, {
       headers: { Authorization: localStorage.getItem('token') },
     })
       .then(res => res.json())
