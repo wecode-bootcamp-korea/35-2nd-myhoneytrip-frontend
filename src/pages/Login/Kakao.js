@@ -8,7 +8,7 @@ const Kakao = () => {
   let code = params.get('code');
 
   useEffect(() => {
-    fetch(`http://54.180.2.226:8001/users/signin/kakao`, {
+    fetch(`http://3.36.97.191:8001/users/signin/kakao`, {
       method: 'POST',
       body: JSON.stringify({ authorize_code: code }),
     })
