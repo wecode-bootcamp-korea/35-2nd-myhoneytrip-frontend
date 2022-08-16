@@ -12,9 +12,7 @@ import styled from '@emotion/styled';
 const DetailCost = ({ flightData }) => {
   const {
     flight_detail_id,
-    departure_location,
     departure_airport_code,
-    destination_location,
     destination_airport_code,
     month,
     date,

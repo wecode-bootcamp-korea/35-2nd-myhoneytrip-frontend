@@ -10,7 +10,7 @@ const Signup = () => {
   };
 
   const signin = () => {
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${'342566fe063dfa8affd1ddc743c2aa6a'}&redirect_uri=${'http://localhost:3000/logining'}&response_type=code`;
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${'342566fe063dfa8affd1ddc743c2aa6a'}&redirect_uri=${'http://2nd-myhoneytrip.s3-website.ap-northeast-2.amazonaws.com/logining'}&response_type=code`;
   };
   return (
     <S.LogBox_out>

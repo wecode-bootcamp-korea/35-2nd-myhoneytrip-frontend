@@ -22,7 +22,7 @@ const ReservationData = ({ reservationData, overTen }) => {
   )}일 (${day[newDate.getDay()]})`;
 
   const cancelTravel = () => {
-    fetch('http://54.180.2.226:8001/bookings/mytrip', {
+    fetch('http://3.36.97.191:8001/bookings/mytrip', {
       method: 'PATCH',
       headers: { Authorization: localStorage.getItem('token') },
       body: JSON.stringify({ booking_id: booking_id }),
